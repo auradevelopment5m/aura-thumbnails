@@ -1,4 +1,12 @@
 import type React from "react"
+import "./globals.css"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Aura Thumbnail Generator",
+  description: "Create custom thumbnails for Aura resources",
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -6,11 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <title>Aura Thumbnail Generator</title>
-        <meta name="description" content="Generate custom thumbnails for Aura resources" />
-      </head>
-      <body>{children}</body>
+      <body className="bg-gray-900 text-white">{children}</body>
     </html>
   )
 }
