@@ -2,12 +2,11 @@
   "name": "aura-thumbnail",
   "version": "0.1.0",
   "private": true,
-"scripts": {
+  "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && touch docs/.nojekyll",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "next build && touch out/.nojekyll && git add -f out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "lint": "next lint"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
@@ -29,3 +28,4 @@
     "typescript": "^5.3.2"
   }
 }
+

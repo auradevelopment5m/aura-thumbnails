@@ -6,6 +6,7 @@ const nextConfig = {
     unoptimized: true, // Required for static export
   },
   output: 'export',
+  distDir: 'docs', // Output to docs folder instead of out
   // Make sure this matches your repository name exactly
   basePath: '/aura-thumbnails',
   trailingSlash: true,
