@@ -6,10 +6,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  distDir: 'docs',
   basePath: '/aura-thumbnails',
   trailingSlash: true,
-  // Add this to ensure CSS is properly included
   assetPrefix: '/aura-thumbnails',
 }
 
