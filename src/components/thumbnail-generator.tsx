@@ -30,6 +30,7 @@ export default function ThumbnailGenerator() {
     bottomTextFont: "Anton",
     topTextBold: true,
     bottomTextBold: true,
+    textPadding: 10, // New setting for padding between texts (in pixels)
     backgroundImage: "https://i.postimg.cc/Bv5q3LD1/image.png",
     overlayColor: "#174D25",
     overlayOpacity: 45,
@@ -198,17 +199,22 @@ export default function ThumbnailGenerator() {
       const bottomFontSize =
         config.bottomTextSize <= 9 ? 70 + config.bottomTextSize * 5 : 70 + 9 * 5 + (config.bottomTextSize - 9) * 15
 
+      // Calculate vertical positions with padding
+      const paddingPixels = config.textPadding * 5 // Convert to pixels (multiplier for visual impact)
+      const topTextY = height / 2 - paddingPixels / 2
+      const bottomTextY = height / 2 + paddingPixels / 2
+
       // Draw top text
       ctx.fillStyle = config.topTextColor
       const topFontWeight = config.topTextBold ? "bold" : "normal"
       ctx.font = `${topFontWeight} ${topFontSize}px ${getFont(config.topTextFont)}`
-      ctx.fillText(config.topText, width / 2, height / 2 - 90)
+      ctx.fillText(config.topText, width / 2, topTextY)
 
       // Draw bottom text
       ctx.fillStyle = config.bottomTextColor
       const bottomFontWeight = config.bottomTextBold ? "bold" : "normal"
       ctx.font = `${bottomFontWeight} ${bottomFontSize}px ${getFont(config.bottomTextFont)}`
-      ctx.fillText(config.bottomText, width / 2, height / 2 + 70)
+      ctx.fillText(config.bottomText, width / 2, bottomTextY)
 
       const auraLogoSize = 120
       ctx.shadowColor = "rgba(0, 0, 0, 0.7)"
@@ -293,6 +299,19 @@ export default function ThumbnailGenerator() {
               value={config.bottomText}
               onChange={(e) => handleConfigChange("bottomText", e.target.value)}
               className="w-full bg-gray-700 text-white px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+
+          {/* New input for text padding */}
+          <div className="mb-3">
+            <label className="block text-sm font-medium mb-1">Text Spacing: {config.textPadding}</label>
+            <input
+              type="range"
+              min="1"
+              max="30"
+              value={config.textPadding}
+              onChange={(e) => handleConfigChange("textPadding", Number.parseInt(e.target.value))}
+              className="custom-slider"
             />
           </div>
 
@@ -594,29 +613,31 @@ export default function ThumbnailGenerator() {
               }
             ></div>
 
-            <h1
-              className={`${config.topTextSize <= 9 ? `text-${config.topTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
-              style={{
-                fontFamily: getFontStyle(config.topTextFont),
-                color: config.topTextColor,
-                fontSize: config.topTextSize > 9 ? `${config.topTextSize}rem` : undefined,
-                fontWeight: config.topTextBold ? "bold" : "normal",
-              }}
-            >
-              {config.topText}
-            </h1>
-            <div className="h-10"></div>
-            <h2
-              className={`${config.bottomTextSize <= 9 ? `text-${config.bottomTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
-              style={{
-                fontFamily: getFontStyle(config.bottomTextFont),
-                color: config.bottomTextColor,
-                fontSize: config.bottomTextSize > 9 ? `${config.bottomTextSize}rem` : undefined,
-                fontWeight: config.bottomTextBold ? "bold" : "normal",
-              }}
-            >
-              {config.bottomText}
-            </h2>
+            {/* Apply padding to the text container */}
+            <div className="flex flex-col items-center" style={{ gap: `${config.textPadding * 5}px` }}>
+              <h1
+                className={`${config.topTextSize <= 9 ? `text-${config.topTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
+                style={{
+                  fontFamily: getFontStyle(config.topTextFont),
+                  color: config.topTextColor,
+                  fontSize: config.topTextSize > 9 ? `${config.topTextSize}rem` : undefined,
+                  fontWeight: config.topTextBold ? "bold" : "normal",
+                }}
+              >
+                {config.topText}
+              </h1>
+              <h2
+                className={`${config.bottomTextSize <= 9 ? `text-${config.bottomTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
+                style={{
+                  fontFamily: getFontStyle(config.bottomTextFont),
+                  color: config.bottomTextColor,
+                  fontSize: config.bottomTextSize > 9 ? `${config.bottomTextSize}rem` : undefined,
+                  fontWeight: config.bottomTextBold ? "bold" : "normal",
+                }}
+              >
+                {config.bottomText}
+              </h2>
+            </div>
 
             <div className="absolute bottom-1 left-1">
               <img
@@ -714,29 +735,31 @@ export default function ThumbnailGenerator() {
                   }
                 ></div>
 
-                <h1
-                  className={`${config.topTextSize <= 9 ? `text-${config.topTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
-                  style={{
-                    fontFamily: getFontStyle(config.topTextFont),
-                    color: config.topTextColor,
-                    fontSize: config.topTextSize > 9 ? `${config.topTextSize}rem` : undefined,
-                    fontWeight: config.topTextBold ? "bold" : "normal",
-                  }}
-                >
-                  {config.topText}
-                </h1>
-                <div className="h-10"></div>
-                <h2
-                  className={`${config.bottomTextSize <= 9 ? `text-${config.bottomTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
-                  style={{
-                    fontFamily: getFontStyle(config.bottomTextFont),
-                    color: config.bottomTextColor,
-                    fontSize: config.bottomTextSize > 9 ? `${config.bottomTextSize}rem` : undefined,
-                    fontWeight: config.bottomTextBold ? "bold" : "normal",
-                  }}
-                >
-                  {config.bottomText}
-                </h2>
+                {/* Apply padding to the text container */}
+                <div className="flex flex-col items-center" style={{ gap: `${config.textPadding * 5}px` }}>
+                  <h1
+                    className={`${config.topTextSize <= 9 ? `text-${config.topTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
+                    style={{
+                      fontFamily: getFontStyle(config.topTextFont),
+                      color: config.topTextColor,
+                      fontSize: config.topTextSize > 9 ? `${config.topTextSize}rem` : undefined,
+                      fontWeight: config.topTextBold ? "bold" : "normal",
+                    }}
+                  >
+                    {config.topText}
+                  </h1>
+                  <h2
+                    className={`${config.bottomTextSize <= 9 ? `text-${config.bottomTextSize}xl` : ""} tracking-wide text-center drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
+                    style={{
+                      fontFamily: getFontStyle(config.bottomTextFont),
+                      color: config.bottomTextColor,
+                      fontSize: config.bottomTextSize > 9 ? `${config.bottomTextSize}rem` : undefined,
+                      fontWeight: config.bottomTextBold ? "bold" : "normal",
+                    }}
+                  >
+                    {config.bottomText}
+                  </h2>
+                </div>
 
                 <div className="absolute bottom-1 left-1">
                   <img
