@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && touch docs/.nojekyll",
+    "build": "next build && (IF NOT EXIST docs\\.nojekyll type nul > docs\\.nojekyll)",
     "start": "next start",
     "lint": "next lint"
   },
