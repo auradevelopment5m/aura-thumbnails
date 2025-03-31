@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Ever wanted to create that perfect thumbnail for your youtube videos, but then go into a video editor and you don't know your a's from your b's? Well , same here! Except i know how to do ui design. Therefore, i created this tool for all fivem developers to easily generate a thumbnail within mere seconds! It's easy to use, and instantaneous.
 
-## Getting Started
+# Features
 
-First, run the development server:
+- Ability to edit Text completely.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Ability to edit text font.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Toggle text bold on/off.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Change seperate text colors.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Edit text size.
 
-## Learn More
+- Edit background image.
 
-To learn more about Next.js, take a look at the following resources:
+- Edit overlay color.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Edit bottom left logo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Toggle easily between which frameworks your resource supports ( ESX, QB, QBOX )  or even change the urls for different logos!
 
-## Deploy on Vercel
+- Download within a click at highest quality resolution and perfect ratio for youtube.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Hope you guys enjoy this one!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Links :
+
+- Tool Website : https://auradevelopment5m.github.io/aura-thumbnails/
+
+- Support me : https://ko-fi.com/auradevelopment
+
+- Discord : https://discord.gg/2q8ZBSWPv7
+
+- Personal Website : https://auradevelopment5m.github.io/
