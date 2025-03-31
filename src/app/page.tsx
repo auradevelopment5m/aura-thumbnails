@@ -5,7 +5,6 @@ import ThumbnailGenerator from "@/components/thumbnail-generator"
 export default function Home() {
   return (
     <>
-      {/* Add critical CSS inline */}
       <style jsx global>{`
         body {
           background-color: #111827;
