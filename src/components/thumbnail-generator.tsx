@@ -302,7 +302,7 @@ export default function ThumbnailGenerator() {
             />
           </div>
 
-          {/* New input for text padding */}
+          {/* Add text spacing control here */}
           <div className="mb-3">
             <label className="block text-sm font-medium mb-1">Text Spacing: {config.textPadding}</label>
             <input
