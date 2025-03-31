@@ -15,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Add explicit link to CSS */}
         <link rel="stylesheet" href="/aura-thumbnails/_next/static/css/app/layout.css" />
       </head>
       <body className="bg-gray-900 text-white">{children}</body>
